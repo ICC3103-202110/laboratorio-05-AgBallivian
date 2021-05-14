@@ -48,8 +48,9 @@ function appinput(model){
             message: message2,
             default: TipPer,
             validate: function(value){
-                if(value >= 0) {return true}
-                else {return 'Invalid Number'}
+                if(value >= 0 && value <= 100) {return true}
+                else if(value > 100){return 'Invalid Number (Over 100%)'}
+                else {return 'Invalid Number (Negative)'}
             }
         }
     ])
