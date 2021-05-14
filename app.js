@@ -1,8 +1,8 @@
 //Puedes poner mas cosas en {} que vengan del view
 const {printTable} = require('console-table-printer')
 
+const {update} = require('./update')
 const {appinput} = require('./view')
-
 
 
 async function app(state, update, view){
@@ -17,9 +17,12 @@ async function app(state, update, view){
 
         //inputs
         const input = await appinput(model)
-        console.log(input['BillAmount'] ,input['TipPer'])
-        
+        const updatedModel = update(input['BillAmount'], input['TipPer'], model)
+        state = {
+            ...state, 
+            model: updatedModel,
+            currentView: view(updatedModel)
+        }
     }
-
 }
 module.exports = {app}
