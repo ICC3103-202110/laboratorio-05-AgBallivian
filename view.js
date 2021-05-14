@@ -25,10 +25,6 @@ function tiptable(model){
         }
     ]
 }
-function validateInput(value){
-    if(value >= 0) {return true}
-    else {return 'Invalid Number'}
-}
 
 function appinput(model){
     const {BillAmount} = model
@@ -41,14 +37,20 @@ function appinput(model){
             type: 'input',
             message: message1,
             default: BillAmount,
-            //validate: validateInput(value) 
+            validate: function(value){
+                if(value >= 0) {return true}
+                else {return 'Invalid Number'}
+            }
         },
         {
             name: 'TipPer',
             type: 'input',
             message: message2,
             default: TipPer,
-            //validate: validateInput(value) 
+            validate: function(value){
+                if(value >= 0) {return true}
+                else {return 'Invalid Number'}
+            }
         }
     ])
 }

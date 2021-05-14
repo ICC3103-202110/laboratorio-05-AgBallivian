@@ -4,4 +4,5 @@ initModel = {
     Tip: 0,
     Total: 0
 }
+
 module.exports = {initModel}

@@ -1,9 +1,6 @@
-//Puedes poner mas cosas en {} que vengan del view
 const {printTable} = require('console-table-printer')
 
-const {update} = require('./update')
 const {appinput} = require('./view')
-
 
 async function app(state, update, view){
     while(true){
